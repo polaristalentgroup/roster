@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polaris Talent Group — Roster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F2EC;
+    --white: #FFFFFF;
+    --black: #1A1A18;
+    --text: #2C2C2A;
+    --muted: #888780;
+    --light: #B4B2A9;
+    --border: rgba(44,44,42,0.12);
+    --border-strong: rgba(44,44,42,0.22);
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    background: var(--white);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .nav-logo span {
+    display: block;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  nav a {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 6rem 2rem 5rem;
+    background: var(--white);
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .divider {
+    width: 28px;
+    height: 0.5px;
+    background: var(--border-strong);
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    line-height: 1.8;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* ROSTER GRID */
+  .roster {
+    max-width: 980px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    padding: 2.8rem 2.4rem;
+    overflow: hidden;
+  }
+
+  .card-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--cream);
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .photo-note {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--light);
+    text-transform: uppercase;
+  }
+
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-role {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-bio {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--border);
+    gap: 0.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat {
+    background: var(--cream);
+    padding: 0.9rem 1.1rem;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-value {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  /* TAGS */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 2rem;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border: 0.5px solid var(--border-strong);
+    border-radius: 2px;
+    padding: 4px 10px;
+    font-weight: 300;
+  }
+
+  /* PARTNERS */
+  .partners {
+    border-top: 0.5px solid var(--border);
+    padding-top: 1.4rem;
+  }
+
+  .partners-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.7rem;
+  }
+
+  .partners-names {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    padding: 5.5rem 2rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .cta .eyebrow { margin-bottom: 1rem; }
+
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 2.2rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text);
+    border: 0.5px solid var(--border-strong);
+    padding: 15px 36px;
+    text-decoration: none;
+    font-weight: 400;
+    border-radius: 2px;
+    transition: background 0.15s ease;
+  }
+
+  .cta-btn:hover { background: var(--cream); }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+  }
+
+  footer span {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--light);
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 1.5rem; }
+    .hero h1 { font-size: 36px; }
+    .roster { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    Polaris
+    <span>Talent Group</span>
+  </div>
+  <a href="mailto:partnerships@polaristalentgroup.com">partnerships@polaristalentgroup.com</a>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">Our Roster</p>
+  <h1>Talent that<br>moves culture.</h1>
+  <div class="divider"></div>
+  <p>A select group of talent whose influence extends far beyond the screen. Intentionally chosen. Strategically placed.</p>
+</section>
+
+<div class="roster">
+
+  <!-- BREC -->
+  <div class="card">
+    <div class="card-photo">
+      <img src="brec.jpg" alt="Brec Bassinger">
+    </div>
+    <p class="card-label">Actress</p>
+    <h2 class="card-name">Brec Bassinger</h2>
+    <p class="card-role">Actress &amp; Brand Partner</p>
+    <p class="card-bio">Known for Stargirl and Final Destination: Bloodlines, with Just Picture It (Netflix, Oct 2026) alongside Millie Bobby Brown on the horizon. Deeply responsive Gen Z and young millennial audience across US and international markets.</p>
+    <div class="stats">
+      <div class="stat">
+        <p class="stat-label">Followers</p>
+        <p class="stat-value">2M</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Avg Reach</p>
+        <p class="stat-value">500K</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Engagement</p>
+        <p class="stat-value">4–6%</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">US Audience</p>
+        <p class="stat-value">40%</p>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">18–34</span>
+      <span class="tag">60% Female</span>
+      <span class="tag">15% Europe</span>
+      <span class="tag">60% International</span>
+    </div>
+    <div class="partners">
+      <p class="partners-label">Past partners</p>
+      <p class="partners-names">LoveShackFancy &nbsp;·&nbsp; Maybelline &nbsp;·&nbsp; Longchamp &nbsp;·&nbsp; US Open</p>
+    </div>
+  </div>
+
+  <!-- MARVIN -->
+  <div class="card">
+    <div class="card-photo">
+      <img src="marvin.jpg" alt="Marvin Anthony">
+    </div>
+    <p class="card-label">Actor &amp; Director</p>
+    <h2 class="card-name">Marvin Anthony</h2>
+    <p class="card-role">Actor, Director &amp; Brand Partner</p>
+    <p class="card-bio">Known for Too Hot to Handle, currently developing his directorial debut Driving School (Les As du Volant). Editorial-first content driven by fashion, film, and cinematic storytelling. Strong fit for elevated, culturally relevant partnerships.</p>
+    <div class="stats">
+      <div class="stat">
+        <p class="stat-label">Followers</p>
+        <p class="stat-value">1.6M</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Avg Reach</p>
+        <p class="stat-value">2.3M</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Engagement</p>
+        <p class="stat-value">8–10%</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">US Audience</p>
+        <p class="stat-value">20%</p>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">18–34</span>
+      <span class="tag">65% Female</span>
+      <span class="tag">30% Europe</span>
+      <span class="tag">80% International</span>
+    </div>
+    <div class="partners">
+      <p class="partners-label">Past partners</p>
+      <p class="partners-names">Tod's &nbsp;·&nbsp; Diesel &nbsp;·&nbsp; YSL &nbsp;·&nbsp; NBA</p>
+    </div>
+  </div>
+
+</div>
+
+<section class="cta">
+  <p class="eyebrow">Work with us</p>
+  <p class="cta-headline">Interested in a partnership? Let's talk.</p>
+  <a href="mailto:partnerships@polaristalentgroup.com" class="cta-btn">Get in touch</a>
+</section>
+
+<footer>
+  <span>© 2025 Polaris Talent Group</span>
+  <span>polaristalentgroup.com</span>
+</footer>
+
+</body>
+</html>
